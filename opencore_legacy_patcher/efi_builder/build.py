@@ -69,6 +69,21 @@ class BuildOpenCore:
 
         # macOS Sequoia support for Lilu plugins
         self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] += " -lilubetaall"
+               # Setup macOS 27 Golden Gate Environment Emulation
+        if self.constants.target_os == 27:
+            logging.info("Targeting macOS 27 Golden Gate: Adding arm2x86Translation.efi and debug environment")
+            
+            # 1. Force the custom translation bootloader driver to load early
+            self.config["UEFI"]["Drivers"].append({
+                "Arguments": "",
+                "Comment": "Conceptual ARM instruction translation and Device Tree layer",
+                "Enabled": True,
+                "LoadEarly": True,
+                "Path": "Arm2x86Translation.efi"
+            })
+            
+            # 2. Append essential low-level debug arguments to NVRAM boot-args
+            self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] += " -v debug=0x100 keepsyms=1 msgbuf=1048576"
 
         # Call support functions
         for function in [
