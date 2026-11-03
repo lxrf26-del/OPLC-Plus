@@ -6,11 +6,24 @@ A specialized fork of OpenCore dedicated to testing, optimizing, and gathering t
 
 ---
 
+## 🎯 Target Hardware Focus: Phase 1 (2012–2015)
+
+Our initial testing phase strictly targets **2012 to 2015 vintage Intel Macs**. Because the foundational breakthrough was achieved on the 2013 Mac Pro hardware, stabilizing machines from this specific era (Ivy Bridge, Haswell, and Broadwell architectures) is our top priority before attempting broader PC/Hackintosh compatibility.
+
+### Priority Models for Log Collection:
+* **Mac Pro:** 2013 "Trash Can" (MacPro6,1) — *Primary Validation Target*
+* **MacBook Pro:** Retina 13" and 15" models (2012–2015)
+* **iMac:** Slim unibody models (2012–2015)
+* **Mac mini & MacBook Air:** Intel Haswell/Broadwell configurations (2013–2015)
+
+---
+
 ## 🚀 Project Status & Target Milestones
 
 - [x] **Fork Created:** Repository baseline established.
+- [x] **Hardware Scope Defined:** Focusing testing infrastructure on 2012–2015 Apple hardware configurations.
 - [ ] **Pre-Release Alignment:** Preparing configuration structures for the upcoming v3 community stream.
-- [ ] **Telemetry Gathering:** Collecting verbose boot logs from varying Intel architectures (Ivy Bridge through Comet Lake).
+- [ ] **Telemetry Gathering:** Collecting verbose boot logs from the targeted 2012–2015 model spectrum.
 - [ ] **Driver Integration:** Testing the stabilization of legacy DriverKit structures and macOS 26 kext injection layers.
 
 ---
@@ -32,9 +45,9 @@ Add the following to your `NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 
 
 ## 📋 How to Contribute (Log Collection)
 
-The primary goal of this fork right now is expanding hardware support beyond the 2013 Mac Pro baseline. If you are testing early builds, please open an Issue using our log template:
+If you have a machine within the **2012–2015** range and want to submit logs, please open an Issue using our log template:
 
-1. **Hardware Profile:** Specify your CPU, GPU, and motherboard/Mac Model identifier.
+1. **Mac Hardware Profile:** Specify your precise Mac Model Identifier (e.g., `MacPro6,1`, `MacBookPro11,3`), CPU, and GPU.
 2. **Boot Log:** Attach the `opencore-YYYY-MM-DD-HHMMSS.txt` log generated on your EFI partition.
 3. **Panic/Crash Capture:** If the system halts at the `WindowServer` or `loginwindow` phase, provide the exact stack trace or text readout.
 
