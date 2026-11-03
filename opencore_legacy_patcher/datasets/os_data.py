@@ -31,8 +31,8 @@ class os_data(enum.IntEnum):
     sonoma =        23
     sequoia =       24
     tahoe =         25
+    golden_gate =   27
     max_os =        99
-
 
 class os_conversion:
 
