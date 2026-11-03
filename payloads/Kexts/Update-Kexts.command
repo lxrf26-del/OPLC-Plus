@@ -10,6 +10,16 @@ import tempfile
 
 # For kexts with basic handling requirements
 KEXT_DICTIONARY = {
+    "Golden-Gate": {
+        "IOHIDFamily": {
+            "Repository": "lxrf26-del/OPLC-Plus",
+            "Constants Variable": "self.iohid_version",
+        },
+        "AppleIntelFramebufferAzul": {
+            "Repository": "lxrf26-del/OPLC-Plus",
+            "Constants Variable": "self.azul_version",
+        },
+    },
 
     "Acidanthera": {
         "AirportBrcmFixup": {
